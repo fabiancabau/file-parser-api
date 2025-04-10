@@ -1,5 +1,5 @@
 # Use Python 3.9 slim as base image
-FROM 3.12-slim-bookworm
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -8,10 +8,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PORT=8000
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+apt-get -y install tesseract-ocr
 
 # Create and set working directory
 WORKDIR /app
