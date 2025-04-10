@@ -1,0 +1,14 @@
+[project]
+name = "easyocr-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.115.12",
+    "kreuzberg>=3.1.3",
+    "python-multipart>=0.0.20",
+    "uvicorn>=0.34.0",
+    "gunicorn>=21.2.0",
+    "uvicorn[standard]>=0.34.0"
+]
