@@ -18,7 +18,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 # Install Python dependencies using uv
-RUN uv pip install --no-cache .
+RUN uv pip install --no-cache --system .
 
 # Copy application code
 COPY . .
