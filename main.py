@@ -28,6 +28,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+supported_formats = ["pdf", "docx", "doc", "txt", "pptx", "ppt", "csv", "xlsx", "xls", "md", "html", "xml", "xhtml", "png", "jpg", "jpeg", "bmp"]
+
 def get_mime_type(file_path: str) -> str:
     mime_type = ""
     if file_path.endswith('.pdf'):
@@ -54,6 +56,12 @@ def get_mime_type(file_path: str) -> str:
         mime_type = 'text/html'
     elif file_path.endswith('.xml'):
         mime_type = 'application/xml'
+    elif file_path.endswith('.xhtml'):
+        mime_type = 'application/xhtml+xml'
+    elif file_path.endswith('.md'):
+        mime_type = 'text/markdown'
+    elif file_path.endswith('.bmp'):
+        mime_type = 'image/bmp'
     return mime_type
 
 @app.post("/extract")
